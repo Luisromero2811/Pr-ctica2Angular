@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Práctica 2 en Angular</title>
+  </head>
+<body class="body">
+<h3>Bienvenidos a mi práctica número 2 en Angular</h3>
+<h2>Mis Jugadores Favoritos</h2>
+<ul class="jugador">
+  <li *ngFor="let jug of lista"  (click)="onSelect(jug)" [class.selected]="jugador === selectedJugador">
+    <span class="badge">{{jug.id}}</span> {{jug.Nombre}} {{jug.Club}}
+  </li>
+</ul>
+<div *ngIf="selectedJugador"  [ngClass]="Clase ? 'claseTrue': 'claseFalse'">
+  <h2>{{selectedJugador.Nombre | uppercase}} Detalles</h2>
+  <span>id: </span>{{selectedJugador.id}}
+  <label>
+    <input [(ngModel)]="selectedJugador.Nombre" placeholder="Nombre del jugador">
+  </label>
+</div>
+<button (click)="CambiarValor()">Ocultar</button>
+</body>
+</html> 
